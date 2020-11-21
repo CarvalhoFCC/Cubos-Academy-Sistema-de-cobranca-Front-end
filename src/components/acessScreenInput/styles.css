@@ -1,0 +1,28 @@
+.acessScreenInput {
+    margin-top: 40px;
+}
+
+.acessScreenInput > label {
+    color: #374952;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.acessScreenInputBox {
+    width: 100%;
+    display: flex;
+    padding: 16px;
+    border-bottom: 1px solid #4c4c4c;
+}
+
+.acessScreenInputBox > input {
+    border: none;
+    font-weight: 400;
+    font-size: 0.875em;
+    color: #4c4c4c;
+    width: 100%;
+}
+
+.acessScreenInputBox input:focus {
+    outline: none;
+}
