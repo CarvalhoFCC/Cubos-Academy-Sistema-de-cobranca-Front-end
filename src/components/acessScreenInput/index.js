@@ -6,7 +6,7 @@ export function AcessScreenInput(props) {
     return (
         <div className="acessScreenInput">
             <label>
-                {props.label}
+                <span>{props.label}</span>
                 <div className="acessScreenInputBox">
                     <input name={props.label} type={props.type} />
                     {props.type === "password" ? (

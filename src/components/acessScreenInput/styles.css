@@ -6,10 +6,14 @@
     color: #374952;
     font-weight: 600;
     font-size: 1em;
+    display: block;
+}
+
+.acessScreenInput span {
+    margin-left: 16px;
 }
 
 .acessScreenInputBox {
-    width: 100%;
     display: flex;
     padding: 16px;
     border-bottom: 1px solid #4c4c4c;

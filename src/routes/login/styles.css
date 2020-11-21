@@ -30,6 +30,10 @@
     align-items: center;
 }
 
+.acessScreanInputsBox, .loginBox > form {
+	width: 100%;
+}
+
 .esqueciMinhaSenha {
     font-size: 0.75em;
     font-weight: 400;

@@ -16,7 +16,7 @@ export function Login(props) {
                 />
 
                 <form>
-                    <div>
+                    <div className="acessScreanInputsBox">
                         <AcessScreenInput label="E-mail" type="email" />
                         <AcessScreenInput label="Senha" type="password" />
                     </div>
