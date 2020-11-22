@@ -1,35 +1,31 @@
 import React from "react";
+import { AcessScreen } from "../../components/acessScreen";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/buttons";
 import { AcessScreenInput } from "../../components/acessScreenInput";
 import logoCubosBlack from "../../images/logoCubos.png";
-import { AcessScreen } from "../../components/acessScreen";
-import "./styles.css";
 
-export function Login(props) {
+export function Register(props) {
     return (
-        <div className="login">
+        <div className="register">
             <AcessScreen
                 extraInfo={
                     <div className="informationBelowTheLoginBox">
-                        Não tem conta? <Link to="/cadastro">Cadastre-se!</Link>
+                        Já possui uma conta? <Link to="/">Acesse agora!</Link>
                     </div>
                 }
             >
-                <img src={logoCubosBlack} alt="" className="logoCubosBlack" />
+                <img src={logoCubosBlack} alt="" className="logoCubosBlac" />
 
                 <form>
                     <div>
+                        <AcessScreenInput label="nome" type="text" />
                         <AcessScreenInput label="E-mail" type="email" />
                         <AcessScreenInput label="Senha" type="password" />
                     </div>
-
-                    <div className="esqueciMinhaSenha">
-                        <Link to="*">Esqueci minha senha</Link>
-                    </div>
-
-                    <Button label="Entrar" class="invalidAcess" />
                 </form>
+
+                <Button class="invalidAcess" label="Criar conta" />
             </AcessScreen>
         </div>
     );

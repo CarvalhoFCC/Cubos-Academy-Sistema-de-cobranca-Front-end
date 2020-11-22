@@ -1,0 +1,54 @@
+.acessScreen {
+    background-color: #f7f7f7;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.acessScreenBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 48px 72px 72px 72px;
+}
+
+.acessScreen .logoCubosBlack {
+    margin-bottom: 16px;
+}
+
+.acessScreen form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.acessScreanInputsBox,
+.acessScreen form {
+    width: 100%;
+}
+
+.acessScreen button {
+    margin-top: 48px;
+}
+
+.informationBelowTheLoginBox {
+    margin-top: 32px;
+    font-size: 0.875em;
+    font-weight: 400;
+    color: #263238;
+    letter-spacing: 0.005em;
+}
+
+.informationBelowTheLoginBox a:link {
+    color: #da0175;
+}
+
+.informationBelowTheLoginBox a:visited {
+    color: #da0175;
+}
