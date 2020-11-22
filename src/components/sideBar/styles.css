@@ -1,0 +1,49 @@
+.sideBar {
+    background-color: #263238;
+    height: 100vh;
+    width: 264px;
+    padding: 32px 0 32px 0;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 auto;
+}
+
+.sideBar .logoCubosWhite {
+    margin-left: 48px;
+    margin-bottom: 58px;
+}
+
+.sideBar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sideBar a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 47px;
+    padding-left: 48px;
+}
+
+.sideBar a:hover {
+    background-color: #374952;
+}
+
+.imgBoxSideBar {
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.sideBar > .buttons {
+    justify-content: center;
+}
