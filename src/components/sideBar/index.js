@@ -7,9 +7,9 @@ import clientImg from "../../images/client.png";
 import { Link } from "react-router-dom";
 import { Button } from "../buttons";
 
-export function SideBar(props) {
+export function Sidebar(props) {
     return (
-        <aside className="sideBar">
+        <aside className="sidebar">
             <div>
                 <img src={logoCubosWhite} alt="" className="logoCubosWhite" />
 
@@ -17,7 +17,7 @@ export function SideBar(props) {
                     <ul>
                         <li>
                             <Link to="/home">
-                                <div className="imgBoxSideBar">
+                                <div className="imgBoxSidebar">
                                     <img src={homeImg} alt="Link para Home" />
                                 </div>
                                 <span>Home</span>
@@ -25,7 +25,7 @@ export function SideBar(props) {
                         </li>
                         <li>
                             <Link to="/home">
-                                <div className="imgBoxSideBar">
+                                <div className="imgBoxSidebar">
                                     <img
                                         src={chargeImg}
                                         alt="Link para Cobranças"
@@ -36,7 +36,7 @@ export function SideBar(props) {
                         </li>
                         <li>
                             <Link to="/home">
-                                <div className="imgBoxSideBar">
+                                <div className="imgBoxSidebar">
                                     <img
                                         src={clientImg}
                                         alt="Link para Clientes"

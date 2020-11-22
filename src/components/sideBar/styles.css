@@ -1,4 +1,4 @@
-.sideBar {
+.sidebar {
     background-color: #263238;
     height: 100vh;
     width: 264px;
@@ -12,18 +12,18 @@
     flex: 0 0 auto;
 }
 
-.sideBar .logoCubosWhite {
+.sidebar .logoCubosWhite {
     margin-left: 48px;
     margin-bottom: 58px;
 }
 
-.sideBar ul {
+.sidebar ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.sideBar a {
+.sidebar a {
     color: #fff;
     text-decoration: none;
     display: flex;
@@ -33,17 +33,17 @@
     padding-left: 48px;
 }
 
-.sideBar a:hover {
+.sidebar a:hover {
     background-color: #374952;
 }
 
-.imgBoxSideBar {
+.imgBoxSidebar {
     width: 24px;
     display: flex;
     justify-content: center;
     margin-right: 16px;
 }
 
-.sideBar > .buttons {
+.sidebar > .buttons {
     justify-content: center;
 }
