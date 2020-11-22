@@ -6,29 +6,23 @@ import logoCubosBlack from "../../images/logoCubos.png";
 import { AcessScreen } from "../../components/acessScreen";
 import "./styles.css";
 
-export function Login(props) {
+export function ForgotPassword(props) {
     return (
-        <div className="login">
-            <AcessScreen
-                extraInfo={
-                    <div className="informationBelowTheLoginBox">
-                        Não tem conta? <Link to="/cadastro">Cadastre-se!</Link>
-                    </div>
-                }
-            >
+        <div className="forgotPassword">
+            <AcessScreen>
                 <img src={logoCubosBlack} alt="" className="logoCubosBlack" />
+
+                <p>
+                    Informe o e-mail associado a sua conta e vamos te enviar
+                    instruções para resetar sua senha
+                </p>
 
                 <form>
                     <div>
                         <AcessScreenInput label="E-mail" type="email" />
-                        <AcessScreenInput label="Senha" type="password" />
                     </div>
 
-                    <div className="esqueciMinhaSenha">
-                        <Link to="/recuperarsenha">Esqueci minha senha</Link>
-                    </div>
-
-                    <Button label="Entrar" class="invalidAcess" />
+                    <Button label="Recuperar senha" class="invalidAcess" />
                 </form>
             </AcessScreen>
         </div>
