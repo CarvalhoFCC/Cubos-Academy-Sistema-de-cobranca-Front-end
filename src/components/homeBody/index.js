@@ -48,7 +48,7 @@ export function HomeBody() {
                 <div className="card">
                     <header>
                         <div>
-                            <img src={clientImg} alt="" />
+                            <img src={chargeImg} alt="" />
                             <span>Clientes</span>
                         </div>
                     </header>
