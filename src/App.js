@@ -5,19 +5,31 @@ import { ForgotPassword } from "./routes/forgotPassword";
 import { Home } from "./routes/home";
 import { Login } from "./routes/login";
 import { Register } from "./routes/register";
+import { AuthenticationContainer } from "./utils/container/authentication";
+
+
 
 function App() {
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Switch>
-                    <Route exact path="/" component={Login} />
-					<Route exact path="/cadastro" component={Register} />
-					<Route exact path="/recuperarsenha" component={ForgotPassword} />
-					<Route exact path="/home" component={Home} />
-                </Switch>
-            </div>
-        </BrowserRouter>
+        <AuthenticationContainer.Provider>
+            <BrowserRouter>
+                <div className="App">
+                    <Switch>
+                        <Route exact path="/">
+                            {" "}
+                            <Login />{" "}
+                        </Route>
+                        <Route exact path="/cadastro" component={Register} />
+                        <Route
+                            exact
+                            path="/recuperarsenha"
+                            component={ForgotPassword}
+                        />
+                        <Route exact path="/home" component={Home} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
+        </AuthenticationContainer.Provider>
     );
 }
 
