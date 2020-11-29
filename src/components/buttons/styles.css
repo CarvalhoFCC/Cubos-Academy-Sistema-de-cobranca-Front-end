@@ -1,6 +1,5 @@
 .buttons {
-	display: flex;
-	/* justify-content: center; */
+    display: flex;
 }
 
 .buttons button {
@@ -27,6 +26,10 @@
 .buttons .buttonWithoutBackground {
     background: #ffffff;
     box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.1);
-	border: 1.5px solid #DA0175;
-	color: #DA0175;
+    border: 1.5px solid #da0175;
+    color: #da0175;
+}
+
+button:focus {
+    outline: none;
 }

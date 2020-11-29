@@ -3,16 +3,14 @@ import { createContainer } from "unstated-next";
 import { auth } from "../api/auth";
 
 export const AuthenticationContainer = createContainer(() => {
-    const [token, setToken] = React.useState(null);
-    const email = "lulis@gmail.com";
-    const password = "152";
+    const [token, setToken] = React.useState(null);;
 
     //   async function login(email, senha) {
     //     setToken(await auth(email, senha));
     //   }
 
-    function login() {
-        auth({ email, senha: password }).then((responseJson) => {
+    function login(email, senha) {
+        auth({ email, senha }).then((responseJson) => {
             const newToken = responseJson.dados.token;
             setToken(newToken);
             console.log(newToken);

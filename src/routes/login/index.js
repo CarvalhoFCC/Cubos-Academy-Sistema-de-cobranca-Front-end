@@ -8,9 +8,9 @@ import "./styles.css";
 import { AuthenticationContainer } from "../../utils/container/authentication";
 import { useForm } from "react-hook-form";
 
-export function Login(props) {
+export function Login(props, ref) {
     const { login, token } = AuthenticationContainer.useContainer();
-    // const { register, handleSubmit, watch } = useForm();
+    const { register, handleSubmit } = useForm();
 
     return (
         <div className="login">
@@ -24,16 +24,24 @@ export function Login(props) {
                 <img src={logoCubosBlack} alt="" className="logoCubosBlack" />
 
                 <form
-                    onSubmit={(event) => {
-                        event.preventDefault();
-
-                        login();
-                    }}
+                    onSubmit={handleSubmit((data) => {
+						console.log(data.email, data.senha);
+						login(data.email, data.senha);
+                    })}
                 >
-                    <div>
-                        <AcessScreenInput label="E-mail" type="email" />
-                        <AcessScreenInput label="Senha" type="password" />
-                    </div>
+                  
+                    <AcessScreenInput
+                        label="E-mail"
+                        name="email"
+						type="email"
+						inputRef={register}
+                    />
+                    <AcessScreenInput
+                        label="Senha"
+                        name="senha"
+						type="password"
+						inputRef={register}
+                    />
 
                     <div className="esqueciMinhaSenha">
                         <Link to="/recuperarsenha">Esqueci minha senha</Link>

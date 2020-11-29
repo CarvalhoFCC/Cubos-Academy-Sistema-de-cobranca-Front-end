@@ -31,3 +31,9 @@
 .acessScreenInputBox input:focus {
     outline: none;
 }
+
+.acessScreenInputBox button {
+	background-color:  #ffffff;
+	border: none;
+	display: block;
+}
