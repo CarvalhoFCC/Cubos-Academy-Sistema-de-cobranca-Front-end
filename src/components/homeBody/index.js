@@ -49,7 +49,7 @@ export function HomeBody() {
                     <header>
                         <div>
                             <img src={chargeImg} alt="" />
-                            <span>Clientes</span>
+                            <span>Cobranças</span>
                         </div>
                     </header>
                     <body>

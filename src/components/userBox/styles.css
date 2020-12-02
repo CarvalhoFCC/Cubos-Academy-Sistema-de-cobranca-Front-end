@@ -1,0 +1,37 @@
+.userBox {
+	align-self: flex-start;
+	display: flex;
+	flex-direction: column;
+}
+
+.userButton {
+	align-self: flex-end;
+	margin-bottom: 5px;
+}
+
+.logoutButton span {
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #323232;
+    margin-left: 4px;
+}
+
+.userBox button {
+    border: 0;
+    background: #ffffff;
+}
+
+.logoutButton {
+    padding: 16px 8px;
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.userBox button:focus {
+    outline: none;
+}
+
+.logoutButton > div {
+    display: flex;
+    align-items: center;
+}
