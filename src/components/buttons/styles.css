@@ -16,10 +16,10 @@
 }
 
 .buttons .validAcess {
-    background: #da0175;
+	background: #da0175;
 }
 
-.buttons .invalidAcess {
+.buttons [disabled] {
     background: rgba(218, 1, 117, 0.35);
 }
 

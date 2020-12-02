@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button } from "../../components/buttons";
 import { AcessScreenInput } from "../../components/acessScreenInput";
 import logoCubosBlack from "../../images/logoCubos.png";
@@ -9,8 +9,18 @@ import { AuthenticationContainer } from "../../utils/container/authentication";
 import { useForm } from "react-hook-form";
 
 export function Login(props, ref) {
-    const { login, token } = AuthenticationContainer.useContainer();
-    const { register, handleSubmit } = useForm();
+    const { login } = AuthenticationContainer.useContainer();
+    const { register, handleSubmit, errors, trigger } = useForm({
+        mode: "all",
+	});
+	
+    const history = useHistory();
+
+    React.useEffect(() => trigger(), [trigger]);
+
+    const qtdErros = Object.keys(errors).length;
+
+	const emailInputRef = React.useRef();
 
     return (
         <div className="login">
@@ -24,30 +34,39 @@ export function Login(props, ref) {
                 <img src={logoCubosBlack} alt="" className="logoCubosBlack" />
 
                 <form
-                    onSubmit={handleSubmit((data) => {
-						console.log(data.email, data.senha);
-						login(data.email, data.senha);
+                    onSubmit={handleSubmit(async (data) => {
+						await login(data.email, data.senha);
+                        history.push("/home");
                     })}
                 >
-                  
                     <AcessScreenInput
                         label="E-mail"
                         name="email"
-						type="email"
-						inputRef={register}
+                        type="email"
+                        inputRef={(element) => {
+							emailInputRef.current = element;
+							register({
+								required: true,
+								validate: () => element.checkValidity(),
+							})(element);
+						}}
                     />
                     <AcessScreenInput
                         label="Senha"
                         name="senha"
-						type="password"
-						inputRef={register}
+                        type="password"
+                        inputRef={register({ required: true })}
                     />
 
                     <div className="esqueciMinhaSenha">
                         <Link to="/recuperarsenha">Esqueci minha senha</Link>
                     </div>
 
-                    <Button label="Entrar" class="invalidAcess" />
+                    <Button
+                        disabled = {qtdErros > 0}
+                        label="Entrar"
+                        class="validAcess"
+                    />
                 </form>
             </AcessScreen>
         </div>

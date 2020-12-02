@@ -3,20 +3,25 @@ import { createContainer } from "unstated-next";
 import { auth } from "../api/auth";
 
 export const AuthenticationContainer = createContainer(() => {
-    const [token, setToken] = React.useState(null);
+    const [token, setToken] = React.useState(localStorage.getItem("token"));
 
-    //   async function login(email, senha) {
-    //     setToken(await auth(email, senha));
-    //   }
+    React.useEffect(() => {
+        if (token) {
+            localStorage.setItem("token", token);
+        } else {
+            localStorage.removeItem("token");
+        }
+    }, [token]);
 
-    function login(email, senha) {
-        auth({ email, senha }).then((responseJson) => {
-            const newToken = responseJson.dados.token;
-            setToken(newToken);
-            console.log(newToken);
-        });
-	}
-	
+    async function login(email, senha) {
+		const responseJson = await auth({ email, senha })
+		        if (responseJson) {
+                const newToken = responseJson.dados.token;
+                setToken(newToken);
+                console.log(newToken);
+            }
+    }
+
     function logout() {
         setToken(null);
     }

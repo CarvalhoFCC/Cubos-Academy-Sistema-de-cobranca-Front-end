@@ -6,8 +6,7 @@ import { Home } from "./routes/home";
 import { Login } from "./routes/login";
 import { Register } from "./routes/register";
 import { AuthenticationContainer } from "./utils/container/authentication";
-
-
+import { PrivateRoute } from "./utils/privateRoute/privateRoute";
 
 function App() {
     return (
@@ -25,7 +24,10 @@ function App() {
                             path="/recuperarsenha"
                             component={ForgotPassword}
                         />
-                        <Route exact path="/home" component={Home} />
+                        <PrivateRoute exact path="/home">
+                            {" "}
+                            <Home />{" "}
+                        </PrivateRoute>
                     </Switch>
                 </div>
             </BrowserRouter>

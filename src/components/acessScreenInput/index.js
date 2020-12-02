@@ -3,7 +3,7 @@ import showPassword from "../../images/showPassword.png";
 import hidePassword from "../../images/hidePassword.png";
 import "./styles.css";
 
-export function AcessScreenInput({ inputRef, name, label, type }) {
+export function AcessScreenInput({ inputRef, name, label, type , onChange}) {
     const [visible, setVisible] = React.useState(false);
 
     return (
@@ -11,7 +11,17 @@ export function AcessScreenInput({ inputRef, name, label, type }) {
             <label name={name}>
                 <span>{label}</span>
                 <div className="acessScreenInputBox">
-                    <input name={name} type={type === "password" ? (visible ? "text" : "password") : (type)} ref={inputRef} />
+                    <input
+                        name={name}
+                        type={
+                            type === "password"
+                                ? visible
+                                    ? "text"
+                                    : "password"
+                                : type
+                        }
+                        ref={inputRef}
+                    />
                     {type === "password" ? (
                         <button
                             type="button"
