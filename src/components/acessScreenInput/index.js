@@ -3,7 +3,7 @@ import showPassword from "../../images/showPassword.png";
 import hidePassword from "../../images/hidePassword.png";
 import "./styles.css";
 
-export function AcessScreenInput({ inputRef, name, label, type , onChange}) {
+export function AcessScreenInput({ inputRef, name, label, type }) {
     const [visible, setVisible] = React.useState(false);
 
     return (

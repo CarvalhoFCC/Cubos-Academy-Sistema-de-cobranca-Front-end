@@ -31,7 +31,7 @@ export function HomeBody() {
                             <span>Clientes</span>
                         </div>
                     </header>
-                    <body>
+                    <section>
                         <CardResult
                             class="green"
                             label="Em dia"
@@ -42,7 +42,7 @@ export function HomeBody() {
                             label="Inadiplentes"
                             number="0"
                         />
-                    </body>
+                    </section>
                 </div>
 
                 <div className="card">
@@ -52,7 +52,7 @@ export function HomeBody() {
                             <span>Cobranças</span>
                         </div>
                     </header>
-                    <body>
+                    <section>
                         <CardResult
                             class="blue"
                             label="Previstas"
@@ -68,7 +68,7 @@ export function HomeBody() {
                             label="Pagas"
                             number="0"
                         />
-                    </body>
+                    </section>
                 </div>
             </main>
         </div>

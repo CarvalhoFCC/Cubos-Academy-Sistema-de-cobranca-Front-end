@@ -4,10 +4,12 @@ import logoCubosWhite from "../../images/logoCubos2.png";
 import homeImg from "../../images/home.png";
 import chargeImg from "../../images/charge.png";
 import clientImg from "../../images/client.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button } from "../buttons";
 
 export function Sidebar(props) {
+	const history = useHistory();
+	
     return (
         <aside className="sidebar">
             <div>
@@ -24,7 +26,7 @@ export function Sidebar(props) {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/home">
+                            <Link to="/charges">
                                 <div className="imgBoxSidebar">
                                     <img
                                         src={chargeImg}
@@ -35,7 +37,7 @@ export function Sidebar(props) {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/home">
+                            <Link to="/customers">
                                 <div className="imgBoxSidebar">
                                     <img
                                         src={clientImg}
@@ -49,7 +51,7 @@ export function Sidebar(props) {
                 </nav>
             </div>
 
-            <Button label="Criar cobrança" class="validAcess" />
+            <Button label="Criar cobrança" class="validAcess" type="button" onClick={() => history.push("/createcharge")}/>
         </aside>
     );
 }

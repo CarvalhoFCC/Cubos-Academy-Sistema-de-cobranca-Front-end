@@ -2,11 +2,8 @@
 	align-self: flex-start;
 	display: flex;
 	flex-direction: column;
-}
-
-.userButton {
-	align-self: flex-end;
-	margin-bottom: 5px;
+	flex: 0 1 100px
+	
 }
 
 .logoutButton span {
@@ -27,11 +24,18 @@
     border-radius: 8px;
 }
 
+.userButton {
+	align-self: flex-end;
+	margin-bottom: 5px;
+	background-color: #f7f7f7;
+}
+
 .userBox button:focus {
     outline: none;
 }
 
 .logoutButton > div {
     display: flex;
-    align-items: center;
+	align-items: center;
+	flex-grow: 0;
 }

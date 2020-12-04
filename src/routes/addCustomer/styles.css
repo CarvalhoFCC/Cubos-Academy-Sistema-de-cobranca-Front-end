@@ -1,0 +1,32 @@
+.addCostumer {
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: row;
+}
+
+.customerAndChargeScreen {
+	padding-left: 72px;
+	padding-right: 72px;
+}
+
+.customerAndChargeScreenBox {
+    background: #ffffff;
+	border-radius: 16px;
+	padding: 40px 223px 56px 223px;
+}
+
+.addCostumer section {
+	background-color: #F7F7F7;
+
+}
+
+.addCustomerHeader{
+	height: 144px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 32px 56px 24px 72px;
+}
+
+
+

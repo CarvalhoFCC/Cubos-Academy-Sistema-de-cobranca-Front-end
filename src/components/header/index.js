@@ -3,8 +3,7 @@ import "./styles.css";
 import imgMoney from "../../images/moneySymbol.png";
 import { UserBox } from "../userBox";
 
-export function Header() {
-	
+export function Header() {	
 	
     return (
         <div className="header">

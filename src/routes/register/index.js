@@ -7,10 +7,6 @@ import logoCubosBlack from "../../images/logoCubos.png";
 import { useForm } from "react-hook-form";
 import { registration } from "../../utils/api/register";
 
-function newUser(email, senha, nome) {
-    registration({ email, senha, nome });
-}
-
 export function Register(props, ref) {
     const { register, handleSubmit, errors, trigger } = useForm({
         mode: "all",
@@ -37,7 +33,7 @@ export function Register(props, ref) {
 
                 <form
                     onSubmit={handleSubmit(async (data) => {
-                        await newUser(data.email, data.senha, data.nome);
+                        await registration(data.email, data.senha, data.nome);
                         history.push("/");
                     })}
                 >
