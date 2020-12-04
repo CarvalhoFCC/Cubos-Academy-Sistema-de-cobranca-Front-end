@@ -9,7 +9,7 @@ import { AuthenticationContainer } from "../../utils/container/authentication";
 import { useForm } from "react-hook-form";
 
 export function Login(props, ref) {
-    const { login } = AuthenticationContainer.useContainer();
+    const { login, token } = AuthenticationContainer.useContainer();
     const { register, handleSubmit, errors, trigger } = useForm({
         mode: "all",
 	});
@@ -36,6 +36,7 @@ export function Login(props, ref) {
                 <form
                     onSubmit={handleSubmit(async (data) => {
 						await login(data.email, data.senha);
+						console.log(token)
                         history.push("/home");
                     })}
                 >

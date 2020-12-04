@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import chargeImg from "../../images/charge.png";
 import clientImg from "../../images/users2.png";
 import "./styles.css";
+import { AuthenticationContainer } from "../../utils/container/authentication";
+import { report } from "../../utils/api/roport";
+import { ReportContainer } from "../../utils/container/report";
 
 function CardResult(props) {
     return (
@@ -14,6 +17,13 @@ function CardResult(props) {
 }
 
 export function HomeBody() {
+	const { token } = AuthenticationContainer.useContainer();
+	const { reports, getReport } = ReportContainer.useContainer();
+
+    React.useEffect(() => {
+        getReport(token);
+    }, []);
+
     return (
         <div className="homeBody">
             <header>
@@ -35,12 +45,12 @@ export function HomeBody() {
                         <CardResult
                             class="green"
                             label="Em dia"
-                            number="0"
+                            number={reports.qtdClientesAdimplentes}
                         />
                         <CardResult
                             class="red"
                             label="Inadiplentes"
-                            number="0"
+                            number={reports.qtdClientesInadimplentes}
                         />
                     </section>
                 </div>
@@ -56,17 +66,17 @@ export function HomeBody() {
                         <CardResult
                             class="blue"
                             label="Previstas"
-                            number="0"
+                            number={reports.qtdBoletosNaoPagos}
                         />
                         <CardResult
                             class="red"
                             label="Vencidas"
-                            number="0"
+                            number={reports.qtdBoletosVencidos}
                         />
 						<CardResult
                             class="green"
                             label="Pagas"
-                            number="0"
+                            number={reports.qtdBoletosPagos}
                         />
                     </section>
                 </div>

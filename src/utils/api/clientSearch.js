@@ -1,8 +1,8 @@
 import React from "react";
 
-export function customerList(token, page, qtdPorPagina = 10) {
+export function clientsSearch(token, page, textSearch) {
     return fetch(
-        `https://cubos-desafio-4.herokuapp.com/clientes?clientesPorPagina=${qtdPorPagina}&offset=${page}`,
+        `https://cubos-desafio-4.herokuapp.com/clientes?busca=${textSearch}&clientesPorPagina=10&offset=${page}`,
         {
             method: "GET",
             headers: {

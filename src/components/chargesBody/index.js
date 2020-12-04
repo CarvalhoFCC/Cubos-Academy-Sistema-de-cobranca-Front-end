@@ -11,7 +11,7 @@ export function ChargesBody() {
     const [charges, setCharges] = React.useState([]);
     const [page, setPage] = React.useState(0);
 
-    async function getClients(token, page) {
+    async function getCharges(token, page) {
         const responseJson = await chargesList(token, page);
 
         if (responseJson) {
@@ -22,41 +22,41 @@ export function ChargesBody() {
     }
 
     React.useEffect(() => {
-        getClients(token, page);
+        getCharges(token, page);
     }, [page]);
 
-    function ClientList(props) {
+    function ChargesList(props) {
         return (
             <li>
                 {props.id}
-                {"     "} {props.nome} {props.email} {props.cobrancasFeitas}{" "}
-                {props.cobrancasRecebidas}{" "}
-                {props.estaInadiplente === false ? "ok" : "inaiplente"}
+                {"     "} {props.idDoCliente} {props.descricao} {props.valor}{" "}
+                {props.vencimento}{" "}{props.linkDoBoleto}
+                {props.status}
             </li>
         );
     }
 
     return (
         <div className="chargesBody">
-            <Button
-                class="buttonWithoutBackground"
-                type="button"
-				onClick={() => history.push("/addcustomer")}
-				label="Adicionar cliente"
-            />
+            <div>
+				<div>
+					<input /> <button type="button">IMG BUSCAR</button>
+				</div>
+			</div>
 
             <section>
                 <ul>
-                    {[].map((r) => {
+                    {charges.map((r) => {
                         return (
-                            <ClientList
+                            <ChargesList
                                 key={r.id}
                                 id={r.id}
-                                nome={r.nome}
-                                email={r.email}
-                                cobrancasFeitas={r.cobrancas_total}
-                                cobrancasRecebidas={r.cobrancas_pago}
-                                estaInadiplente={r.inadimplente}
+                                idDoCliente={r.iddocliente}
+                                descricao={r.descricao}
+                                valor={r.valor}
+                                vencimento={r.vencimento}
+								linkDoBoleto={r.linkdoboleto}
+								status={r.status}
                             />
                         );
                     })}
