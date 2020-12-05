@@ -50,6 +50,7 @@ export function CreateCharge() {
                             />
 							<div>A descrição informada será impressa no boleto.</div>
 
+							<div>
                             <CustomerAndChargeInputs
                                 label="Valor"
                                 name="valor"
@@ -67,12 +68,21 @@ export function CreateCharge() {
                                     required: true,
                                 })}
                             />
+							</div>	
+
+							<div>	
+							<Button
+                                disabled={qtdErros > 0}
+                                label="Entrar"
+                                class="validAcess"
+                            />
 
                             <Button
                                 disabled={qtdErros > 0}
                                 label="Entrar"
                                 class="validAcess"
                             />
+							</div>
                         </form>
                     </div>
                 </div>
