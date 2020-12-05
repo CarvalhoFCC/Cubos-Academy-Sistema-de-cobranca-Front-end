@@ -7,6 +7,7 @@ import { Button } from "../buttons";
 import phoneImg from "../../images/phone.png";
 import emailImg from "../../images/email.png";
 import editImg from "../../images/edit.png";
+import searchImg from "../../images/search.png";
 
 export function CustomerBody() {
     const history = useHistory();
@@ -20,7 +21,6 @@ export function CustomerBody() {
         if (responseJson) {
             const newList = responseJson.dados.clientes;
             setClients(newList);
-            console.log("asd", newList);
         }
     }
 
@@ -33,7 +33,7 @@ export function CustomerBody() {
             <tr>
                 <td>
                     <div>
-                        <span>{props.nome}</span>
+                        <span className="nomeLine">{props.nome}</span>
                         <div className="emailLine">
                             {" "}
                             <img src={emailImg} alt="" /> {props.email}
@@ -66,9 +66,9 @@ export function CustomerBody() {
                 </td>
                 <td>
                     {props.estaInadiplente === false ? (
-                        <span>EM DIA</span>
+                        <span className="emDia">EM DIA</span>
                     ) : (
-                        <span>INADIMPLENTE</span>
+                        <span className="inadimplente">INADIMPLENTE</span>
                     )}
                 </td>
                 <td>
@@ -80,12 +80,21 @@ export function CustomerBody() {
 
     return (
         <div className="customerBody">
-            <Button
-                class="buttonWithoutBackground"
-                type="button"
-                onClick={() => history.push("/addcustomer")}
-                label="Adicionar cliente"
-            />
+            <div>
+                <Button
+                    class="buttonWithoutBackground backGrey"
+                    type="button"
+                    onClick={() => history.push("/addcustomer")}
+                    label="Adicionar cliente"
+                />
+
+                <div className="search">
+                    <input placeholder="Procurar por Nome, E-mail ou CPF" />{" "}
+                    <button type="button">
+                        <img src={searchImg} alt="Pesquisar Cliente" /> BUSCAR
+                    </button>
+                </div>
+            </div>
 
             <section>
                 <table cellSpacing={0}>

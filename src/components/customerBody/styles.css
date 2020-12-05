@@ -10,6 +10,53 @@ table {
     padding: 0 72px 64px 72px;
 }
 
+.customerBody > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 64px;
+    margin-bottom: 40px;
+}
+
+.search {
+    border: 1px solid #374952;
+    border-radius: 8px;
+    display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex: 0 1 432px;
+	padding-left: 24px;
+	background: #F7F7F7;
+}
+
+.search button {
+	background: #374952;
+	border: 1px solid #374952;
+	border-radius: 8px;
+	display: flex;
+	height: 100%;
+	align-items: center;
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.75rem;
+	padding: 12px 24px 12px 24px;
+}
+
+.search button img {
+	margin-right: 8px;
+}
+
+.search input {
+	flex-grow: 1;
+	margin-right: 24px;
+	background: #F7F7F7;
+	border: none;
+}
+
+.search input:focus {
+	outline: none;
+}
+
 thead th {
     background-color: #9dbbc3;
     color: #ffffff;
@@ -23,12 +70,12 @@ thead th:first-child {
     border-bottom-left-radius: 8px;
 }
 
-.customerBody thead th:last-child {
+thead th:last-child {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
-.customerBody tr {
+tr {
     background: #ffffff;
 }
 
@@ -62,4 +109,30 @@ tbody td:last-child {
 .emailLine {
     margin-top: 16px;
     margin-bottom: 8px;
+}
+
+.customerBody td {
+    font: 0.875rem;
+    font-weight: 400;
+    color: #4c4c4c;
+}
+
+.nomeLine {
+    font-weight: 600;
+}
+
+.inadimplente {
+    font-weight: 600;
+    font-size: 16px;
+    color: #ff4d4d;
+}
+
+.emDia {
+    font-weight: 600;
+    font-size: 16px;
+    color: #4ec06e;
+}
+
+.backGrey {
+	background: #F7F7F7 !important;
 }

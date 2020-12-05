@@ -3,7 +3,10 @@ import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { chargesList } from "../../utils/api/chargesList";
 import { AuthenticationContainer } from "../../utils/container/authentication";
-import { Button } from "../buttons";
+import searchImg from "../../images/search.png";
+import printerImg from "../../images/printer.png";
+import pagoImg from "../../images/toggle-on.png";
+import pendenteImg from "../../images/pendente.png";
 
 export function ChargesBody() {
     const history = useHistory();
@@ -28,12 +31,32 @@ export function ChargesBody() {
     function ChargesList(props) {
         return (
             <tr>
-				<td>{props.id}</td>
-				<td>{props.idDoCliente}</td>
-				<td>{props.descricao}</td>
-				<td>{props.valor}</td>
-				<td>{props.vencimento}</td>
-				<td>{props.linkDoBoleto}</td>
+                <td>{props.idDoCliente}</td>
+                <td>{props.descricao}</td>
+                <td>
+                    R${" "}
+                    {(parseFloat(props.valor) / 100).toLocaleString("pt-BR", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                    })}
+                </td>
+                <td>
+                    {props.status === "PAGO" ? (
+                        <div className="statusPago chargeStatus">
+                            <img src={pagoImg} alt="" /> PAGO
+                        </div>
+                    ) : props.status === "AGUARDANDO" ? (
+                        <div className="statusPendente chargeStatus">
+                            <img src={pendenteImg} alt="" /> PENDENTE
+                        </div>
+                    ) : (
+                        <span className="statusVencido chargeStatus">VENCIDO</span>
+                    )}
+                </td>
+                <td>{props.vencimento}</td>
+                <td>
+                    <img src={printerImg} alt="imprimir" />
+                </td>
             </tr>
         );
     }
@@ -41,40 +64,41 @@ export function ChargesBody() {
     return (
         <div className="chargesBody">
             <div>
-				<div>
-					<input /> <button type="button">IMG BUSCAR</button>
-				</div>
-			</div>
-
-
+                <div className="search">
+                    <input placeholder="Procurar por Nome, E-mail ou CPF" />{" "}
+                    <button type="button">
+                        <img src={searchImg} alt="Pesquisar Cliente" /> BUSCAR
+                    </button>
+                </div>
+            </div>
 
             <section>
-				<table>
-					<thead>
-						<td>Cliente</td>
-						<td>Descrição</td>
-						<td>Valor</td>
-						<td>Status</td>
-						<td>vencimento</td>
-						<td>Boleto</td>
-					</thead>
-					<tbody>
-					{charges.map((r) => {
-                        return (
-                            <ChargesList
-                                key={r.id}
-                                id={r.id}
-                                idDoCliente={r.iddocliente}
-                                descricao={r.descricao}
-                                valor={r.valor}
-                                vencimento={r.vencimento}
-								linkDoBoleto={r.linkdoboleto}
-								status={r.status}
-                            />
-                        );
-                    })}
-					</tbody>                
-				</table>
+                <table>
+                    <thead>
+                        <th>Cliente</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>vencimento</th>
+                        <th>Boleto</th>
+                    </thead>
+                    <tbody>
+                        {charges.map((r) => {
+                            return (
+                                <ChargesList
+                                    key={r.id}
+                                    id={r.id}
+                                    idDoCliente={r.iddocliente}
+                                    descricao={r.descricao}
+                                    valor={r.valor}
+                                    vencimento={r.vencimento}
+                                    linkDoBoleto={r.linkdoboleto}
+                                    status={r.status}
+                                />
+                            );
+                        })}
+                    </tbody>
+                </table>
             </section>
         </div>
     );
