@@ -1,0 +1,65 @@
+table {
+    border-collapse: separate;
+    border-spacing: 0 16px;
+    width: 100%;
+    text-align: left;
+}
+
+.customerBody {
+    background-color: #f7f7f7;
+    padding: 0 72px 64px 72px;
+}
+
+thead th {
+    background-color: #9dbbc3;
+    color: #ffffff;
+    padding: 6px 23px;
+    font-weight: 600;
+    font-size: 0, 875rem;
+}
+
+thead th:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.customerBody thead th:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.customerBody tr {
+    background: #ffffff;
+}
+
+tbody td {
+    padding: 16px 25px;
+}
+
+tbody td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 16px 0 16px 24px;
+}
+
+tbody td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-right: 56px;
+}
+
+.emailLine,
+.phoneLine {
+    display: flex;
+    align-items: center;
+}
+
+.emailLine img,
+.phoneLine img {
+    margin-right: 8px;
+}
+
+.emailLine {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}

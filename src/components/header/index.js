@@ -16,7 +16,18 @@ export function Header() {
                         <span>Saldo em conta</span>
                     </div>
                     <div className="headerBalance">
-                        <span>R$ {reports.saldoEmConta ? (reports.saldoEmConta/100) : ("0.00")}</span>
+                        <span>
+                            R${" "}
+                            {reports.saldoEmConta
+                                ? (reports.saldoEmConta / 100).toLocaleString(
+                                      "pt-BR",
+                                      {
+                                          minimumFractionDigits: 2,
+                                          maximumFractionDigits: 2,
+                                      }
+                                  )
+                                : "0,00"}
+                        </span>
                     </div>
                 </div>
 

@@ -27,12 +27,14 @@ export function ChargesBody() {
 
     function ChargesList(props) {
         return (
-            <li>
-                {props.id}
-                {"     "} {props.idDoCliente} {props.descricao} {props.valor}{" "}
-                {props.vencimento}{" "}{props.linkDoBoleto}
-                {props.status}
-            </li>
+            <tr>
+				<td>{props.id}</td>
+				<td>{props.idDoCliente}</td>
+				<td>{props.descricao}</td>
+				<td>{props.valor}</td>
+				<td>{props.vencimento}</td>
+				<td>{props.linkDoBoleto}</td>
+            </tr>
         );
     }
 
@@ -44,9 +46,20 @@ export function ChargesBody() {
 				</div>
 			</div>
 
+
+
             <section>
-                <ul>
-                    {charges.map((r) => {
+				<table>
+					<thead>
+						<td>Cliente</td>
+						<td>Descrição</td>
+						<td>Valor</td>
+						<td>Status</td>
+						<td>vencimento</td>
+						<td>Boleto</td>
+					</thead>
+					<tbody>
+					{charges.map((r) => {
                         return (
                             <ChargesList
                                 key={r.id}
@@ -60,7 +73,8 @@ export function ChargesBody() {
                             />
                         );
                     })}
-                </ul>
+					</tbody>                
+				</table>
             </section>
         </div>
     );
