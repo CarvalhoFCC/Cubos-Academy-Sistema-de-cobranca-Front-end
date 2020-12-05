@@ -29,6 +29,9 @@
 .customerAndChargeScreenBox label span {
 	margin-bottom: 8px;
 	margin-left: 8px;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #374952;
 }
 
 .customerAndChargeScreenBox form > div {
@@ -58,6 +61,19 @@
     align-items: flex-end;
     justify-content: space-between;
     padding: 32px 56px 24px 72px;
+}
+
+.cpfAndPhone {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cpfAndPhone label {
+	flex: 1 1 auto;
+}
+
+.cpfAndPhone label:first-child {
+	margin-right: 16px;
 }
 
 .addCostumer .buttons {

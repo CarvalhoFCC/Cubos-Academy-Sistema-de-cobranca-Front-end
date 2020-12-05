@@ -71,7 +71,7 @@ export function AddCustomer() {
                                 }}
                             />
 
-                            <div>
+                            <div className="cpfAndPhone">
                                 <CustomerAndChargeInputs
                                     label="CPF"
                                     name="cpf"
@@ -97,14 +97,13 @@ export function AddCustomer() {
 
                             <div className="buttons">
                                 <Button
-                                    disabled={qtdErros > 0}
-                                    label="Entrar"
+                                    label="Cancelar"
                                     class="buttonWithoutBackground"
                                 />
 
                                 <Button
                                     disabled={qtdErros > 0}
-                                    label="Entrar"
+                                    label="Adicionar Cliente"
                                     class="validAcess"
                                 />
                             </div>
