@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.css";
 import { useHistory } from "react-router-dom";
-import { customerList } from "../../utils/api/customerList";
 import { AuthenticationContainer } from "../../utils/container/authentication";
+import { ClientsContainer } from "../../utils/container/clients";
 import { Button } from "../buttons";
 import phoneImg from "../../images/phone.png";
 import emailImg from "../../images/email.png";
@@ -12,28 +12,22 @@ import searchImg from "../../images/search.png";
 export function CustomerBody() {
     const history = useHistory();
     const { token } = AuthenticationContainer.useContainer();
-    const [clients, setClients] = React.useState([]);
+    const { clients, getClients } = ClientsContainer.useContainer();
     const [page, setPage] = React.useState(0);
-
-    async function getClients(token, page) {
-        const responseJson = await customerList(token, page);
-
-        if (responseJson) {
-            const newList = responseJson.dados.clientes;
-            setClients(newList);
-        }
-    }
 
     React.useEffect(() => {
         getClients(token, page);
-    }, [page]);
+    }, []);
 
     function ClientList(props) {
         return (
             <tr>
                 <td>
                     <div>
-                        <span className="nomeLine">{props.nome}</span>
+                        <span className="nomeLine">
+                            {props.nome}
+                            {props.id}
+                        </span>
                         <div className="emailLine">
                             {" "}
                             <img src={emailImg} alt="" /> {props.email}
@@ -99,11 +93,13 @@ export function CustomerBody() {
             <section>
                 <table cellSpacing={0}>
                     <thead>
-                        <th>Cliente</th>
-                        <th>Cobranças Feitas</th>
-                        <th>Cobranças Recebidas</th>
-                        <th>Status</th>
-                        <th> </th>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Cobranças Feitas</th>
+                            <th>Cobranças Recebidas</th>
+                            <th>Status</th>
+                            <th> </th>
+                        </tr>
                     </thead>
                     <tbody>
                         {clients.map((r) => {

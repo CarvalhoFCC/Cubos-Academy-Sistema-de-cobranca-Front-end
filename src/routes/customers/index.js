@@ -1,7 +1,6 @@
 import React from "react";
 import { Sidebar } from "../../components/sidebar";
 import { Header } from "../../components/header";
-import "./styles.css";
 import { CustomerBody } from "../../components/customerBody";
 
 

@@ -9,7 +9,7 @@ import pagoImg from "../../images/toggle-on.png";
 import pendenteImg from "../../images/pendente.png";
 
 export function ChargesBody() {
-    const history = useHistory();
+    // const history = useHistory();
     const { token } = AuthenticationContainer.useContainer();
     const [charges, setCharges] = React.useState([]);
     const [page, setPage] = React.useState(0);
@@ -50,7 +50,9 @@ export function ChargesBody() {
                             <img src={pendenteImg} alt="" /> PENDENTE
                         </div>
                     ) : (
-                        <span className="statusVencido chargeStatus">VENCIDO</span>
+                        <span className="statusVencido chargeStatus">
+                            VENCIDO
+                        </span>
                     )}
                 </td>
                 <td>{props.vencimento}</td>
@@ -75,12 +77,14 @@ export function ChargesBody() {
             <section>
                 <table>
                     <thead>
-                        <th>Cliente</th>
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Status</th>
-                        <th>vencimento</th>
-                        <th>Boleto</th>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                            <th>vencimento</th>
+                            <th>Boleto</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {charges.map((r) => {

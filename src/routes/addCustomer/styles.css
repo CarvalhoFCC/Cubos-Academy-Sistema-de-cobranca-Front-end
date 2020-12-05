@@ -76,11 +76,11 @@
 	margin-right: 16px;
 }
 
-.addCostumer .buttons {
+.addCostumerBody .buttons {
 	display: flex;
 	justify-content: flex-end;
 }
 
-.addCostumer .buttons button {
+.addCostumerBody .buttons button {
 	margin-left: 16px;
 }

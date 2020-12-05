@@ -4,3 +4,13 @@
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
 }
+
+.home {
+	display: flex;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}

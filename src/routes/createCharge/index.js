@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css";
 import { CustomerAndChargeInputs } from "../../components/customerAndChargeInputs";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
