@@ -1,32 +1,70 @@
 .addCostumer {
-	display: flex;
-	flex: 0 1 auto;
-	flex-direction: row;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
 }
 
 .customerAndChargeScreen {
-	padding-left: 72px;
-	padding-right: 72px;
+    padding-left: 72px;
+    padding-right: 72px;
 }
 
 .customerAndChargeScreenBox {
     background: #ffffff;
-	border-radius: 16px;
-	padding: 40px 223px 56px 223px;
+    border-radius: 16px;
+    padding: 40px 223px 56px 223px;
+}
+
+.customerAndChargeScreenBox form {
+    display: flex;
+    flex-direction: column;
+}
+
+.customerAndChargeScreenBox label {
+    display: flex;
+	flex-direction: column;
+	margin-bottom: 32px;
+}
+
+.customerAndChargeScreenBox label span {
+	margin-bottom: 8px;
+	margin-left: 8px;
+}
+
+.customerAndChargeScreenBox form > div {
+    display: flex;
+}
+
+.customerAndChargeScreenBox form input {
+    border: 1px solid #374952;
+    box-sizing: border-box;
+    border-radius: 8px;
+	background: #ffffff;
+	height: 40px;
+}
+
+.customerAndChargeScreenBox form button {
+	margin-top: 32px;
 }
 
 .addCostumer section {
-	background-color: #F7F7F7;
-
+    background-color: #f7f7f7;
+    width: 100%;
 }
 
-.addCustomerHeader{
-	height: 144px;
+.addCustomerHeader {
+    height: 144px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     padding: 32px 56px 24px 72px;
 }
 
+.addCostumer .buttons {
+	display: flex;
+	justify-content: flex-end;
+}
 
-
+.addCostumer .buttons button {
+	margin-left: 16px;
+}

@@ -70,33 +70,44 @@ export function AddCustomer() {
                                     })(element);
                                 }}
                             />
-                            <CustomerAndChargeInputs
-                                label="CPF"
-                                name="cpf"
-                                type="text"
-                                placeholder="000.000.000-00"
-                                inputRef={register({
-                                    pattern: /\d{3}\.\d{3}\.\d{3}-\d{2}/,
-                                    required: true,
-                                })}
-                            />
 
-                            <CustomerAndChargeInputs
-                                label="Telefone"
-                                name="tel"
-                                type="text"
-                                placeholder="+5571999996688"
-                                inputRef={register({
-                                    pattern: /\+\d{13}/,
-                                    required: true,
-                                })}
-                            />
+                            <div>
+                                <CustomerAndChargeInputs
+                                    label="CPF"
+                                    name="cpf"
+                                    type="text"
+                                    placeholder="000.000.000-00"
+                                    inputRef={register({
+                                        pattern: /\d{3}\.\d{3}\.\d{3}-\d{2}/,
+                                        required: true,
+                                    })}
+                                />
 
-                            <Button
-                                disabled={qtdErros > 0}
-                                label="Entrar"
-                                class="validAcess"
-                            />
+                                <CustomerAndChargeInputs
+                                    label="Telefone"
+                                    name="tel"
+                                    type="text"
+                                    placeholder="+5571999996688"
+                                    inputRef={register({
+                                        pattern: /\+\d{13}/,
+                                        required: true,
+                                    })}
+                                />
+                            </div>
+
+                            <div className="buttons">
+                                <Button
+                                    disabled={qtdErros > 0}
+                                    label="Entrar"
+                                    class="buttonWithoutBackground"
+                                />
+
+                                <Button
+                                    disabled={qtdErros > 0}
+                                    label="Entrar"
+                                    class="validAcess"
+                                />
+                            </div>
                         </form>
                     </div>
                 </div>
