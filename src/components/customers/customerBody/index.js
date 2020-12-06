@@ -18,7 +18,7 @@ export function CustomerBody() {
         getClients,
         customersPages,
     } = ClientsContainer.useContainer();
-    const [page, setPage] = React.useState(1);
+	const [page, setPage] = React.useState(1);
 
     React.useEffect(() => {
         getClients(token, page);
@@ -31,7 +31,6 @@ export function CustomerBody() {
                     <div>
                         <span className="nomeLine">
                             {props.nome}
-                            {props.id}
                         </span>
                         <div className="emailLine">
                             {" "}
@@ -71,7 +70,7 @@ export function CustomerBody() {
                     )}
                 </td>
                 <td>
-                    <button onClick={() => history.push("/customeredit")}>
+                    <button className="printButton" onClick={() => history.push("/customeredit")}>
                         <img src={editImg} alt="Editar Cliente" />
                     </button>
                 </td>

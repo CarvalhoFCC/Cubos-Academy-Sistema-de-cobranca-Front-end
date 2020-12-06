@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css";
 import { AuthenticationContainer } from "../../../utils/container/authentication";
 import { ChargesContainer } from "../../../utils/container/charges";
+import { ClientsContainer } from "../../../utils/container/clients";
 import searchImg from "../../../images/search.png";
 import printerImg from "../../../images/printer.png";
 import pagoImg from "../../../images/toggle-on.png";
@@ -10,15 +11,23 @@ import { Pages } from "../../pages";
 
 export function ChargesBody() {
     const { token } = AuthenticationContainer.useContainer();
-    const {
+	const amount = 9999999;
+
+	const {
         charges,
         getCharges,
         chargesPages,
     } = ChargesContainer.useContainer();
-    const [page, setPage] = React.useState(1);
+	const [page, setPage] = React.useState(1);
+
+	const {
+        clients,
+        getClients,
+    } = ClientsContainer.useContainer();
 
     React.useEffect(() => {
-        getCharges(token, page);
+		getCharges(token, page);
+		getClients(token, page, amount);
     }, [page]);
 
     function ChargesList(props) {

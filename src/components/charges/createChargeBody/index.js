@@ -1,10 +1,12 @@
 import React from "react";
+import "./styles.css";
 import { CustomerAndChargeInputs } from "../../customerAndChargeInputs";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Button } from "../../buttons";
 import { ChargesContainer } from "../../../utils/container/charges";
 import { AuthenticationContainer } from "../../../utils/container/authentication";
+import { ClientsContainer } from "../../../utils/container/clients";
 
 export function CreateChargeBody() {
     const { register, handleSubmit, errors, trigger } = useForm({
@@ -12,10 +14,22 @@ export function CreateChargeBody() {
     });
     const { newCharge } = ChargesContainer.useContainer();
     const { token } = AuthenticationContainer.useContainer();
+    const {
+        clients,
+        getClients,
+        customersPages,
+    } = ClientsContainer.useContainer();
+    const [page, setPage] = React.useState(1);
 
-    const history = useHistory();
+    let amount = 999999;
+
+    React.useEffect(() => {
+        getClients(token, page, amount);
+    }, []);
 
     React.useEffect(() => trigger(), [trigger]);
+
+    const history = useHistory();
 
     const qtdErros = Object.keys(errors).length;
 
@@ -34,13 +48,19 @@ export function CreateChargeBody() {
                         history.push("/charges");
                     })}
                 >
-                    <CustomerAndChargeInputs
-                        label="Cliente"
-                        name="idDoCliente"
-                        type="text"
-                        placeholder="Selecione a cliente"
-                        inputRef={register({ required: true })}
-                    />
+                    <label className="selectCreatCharge">
+						<span>Cliente</span>
+                        <select name="idDoCliente" ref={register({ required: true })}>
+                            <option>Selecione o cliente</option>
+                            {clients.map((client, i) => {
+                                return (
+                                    <option key={client.id} value={client.id}>
+                                        {client.nome}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </label>
 
                     <CustomerAndChargeInputs
                         label="Descrição"
@@ -50,27 +70,30 @@ export function CreateChargeBody() {
                     />
                     <div>A descrição informada será impressa no boleto.</div>
 
-                    <div>
-                        <CustomerAndChargeInputs
-                            label="Valor"
-                            name="valor"
-                            type="text"
-                            placeholder="0,00"
-                            inputRef={register({ required: true })}
-                        />
-
-                        <CustomerAndChargeInputs
-                            label="Vencimento"
-                            name="vencimento"
-                            type="date"
-                            inputRef={register({
-                                pattern: /\d{4}-\d{2}-\d{2}/,
-                                required: true,
-                            })}
-                        />
+                    <div className="valueEndExpiresDate">
+                        <div>
+                            <CustomerAndChargeInputs
+                                label="Valor"
+                                name="valor"
+                                type="text"
+                                placeholder="0,00"
+                                inputRef={register({ required: true })}
+                            />
+                        </div>
+                        <div>
+                            <CustomerAndChargeInputs
+                                label="Vencimento"
+                                name="vencimento"
+                                type="date"
+                                inputRef={register({
+                                    pattern: /\d{4}-\d{2}-\d{2}/,
+                                    required: true,
+                                })}
+                            />
+                        </div>
                     </div>
 
-                    <div>
+                    <div className="buttonsSpaceCreateCharges">
                         <Button
                             label="Cancelar"
                             class="buttonWithoutBackground addButtonsForm"

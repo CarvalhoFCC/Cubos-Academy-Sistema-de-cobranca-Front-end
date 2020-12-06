@@ -8,8 +8,8 @@ function useClients() {
 	const [clients, setClients] = React.useState([]);
 	const [customersPages, setCustomersPages] = React.useState([]);
 
-    async function getClients(token, page) {
-        const responseJson = await customerList(token, page);
+    async function getClients(token, page, amount) {
+        const responseJson = await customerList(token, page, amount);
 
         if (responseJson) {
 			const newList = responseJson.dados.clientes;
@@ -29,7 +29,7 @@ function useClients() {
         await editCustomer({ id, nome, cpf, email }, token);
     }
 
-    return { clients, getClients, newCustomer, customersPages, editClient };
+    return { clients, getClients, newCustomer, customersPages, editClient,  };
 }
 
 export const ClientsContainer = createContainer(useClients);

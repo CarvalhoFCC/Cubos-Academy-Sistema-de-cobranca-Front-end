@@ -136,3 +136,8 @@ tbody td:last-child {
 .backGrey {
 	background: #F7F7F7 !important;
 }
+
+.customerBody .printButton {
+	background: #FFFFFF;
+	border: none;
+}

@@ -1,10 +1,10 @@
 import React from "react";
 
-export function customerList(token, page) {
+export function customerList(token, page, amount = 10) {
 	const pageApi = (page-1) * 10;
 
 	return fetch(
-        `https://cubos-desafio-4.herokuapp.com/clientes?clientesPorPagina=10&offset=${pageApi}`,
+        `https://cubos-desafio-4.herokuapp.com/clientes?clientesPorPagina=${amount}&offset=${pageApi}`,
         {
             method: "GET",
             headers: {

@@ -6,19 +6,20 @@ export function CustomerAndChargeInputs({
     name,
     label,
     type,
-    placeholder,
+	placeholder,
+	clasS,
 }) {
     return (
         <label name={name}>
             <span>{label}</span>
             {label === "Valor" ? (
-                <div>
+                <div className="inputValor">
                     <span>R$</span>
                     <input
                         name={name}
                         placeholder={placeholder}
                         type={type}
-                        ref={inputRef}
+						ref={inputRef}
                     />
                 </div>
             ) : (
@@ -26,7 +27,7 @@ export function CustomerAndChargeInputs({
                     name={name}
                     placeholder={placeholder}
                     type={type}
-                    ref={inputRef}
+					ref={inputRef}
                 />
             )}
         </label>

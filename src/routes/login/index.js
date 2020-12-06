@@ -36,7 +36,6 @@ export function Login(props, ref) {
                 <form
                     onSubmit={handleSubmit(async (data) => {
 						await login(data.email, data.senha);
-						console.log(token)
                         history.push("/home");
                     })}
                 >
