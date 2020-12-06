@@ -1,0 +1,19 @@
+.chargeAndCustomerPages {
+	text-align: right;
+	margin-top: 1.5rem;
+}
+
+.chargeAndCustomerPages > div {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.chargeAndCustomerPages button {
+	background-color: #f7f7f7;
+	border: 0;
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: #667E87;
+	letter-spacing: 0.25px;
+}
