@@ -71,7 +71,9 @@ export function CustomerBody() {
                     )}
                 </td>
                 <td>
-                    <img src={editImg} alt="" />
+                    <button onClick={() => history.push("/customeredit")}>
+                        <img src={editImg} alt="Editar Cliente" />
+                    </button>
                 </td>
             </tr>
         );

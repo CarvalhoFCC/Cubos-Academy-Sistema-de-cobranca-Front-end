@@ -1,52 +1,35 @@
 import React from "react";
-// import "./styles.css";
-// import { CustomerAndChargeInputs } from "../../components/customerAndChargeInputs";
-// import { Link, useHistory } from "react-router-dom";
-// import { useForm } from "react-hook-form";
-import { Sidebar } from "../components/sidebar";
-// import { Button } from "../../components/buttons";
-import { UserBox } from "../components/userBox";
-// import { addCustomer } from "../../utils/api/addCustomer";
-// import { AuthenticationContainer } from "../../utils/container/authentication";
-import { AddCustomerBody } from "../components/customers/addCustomerBody";
+import "./styles.css";
+import { CustomerAndChargeInputs } from "../../customerAndChargeInputs";
+import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Button } from "../../buttons";
+import { AuthenticationContainer } from "../../../utils/container/authentication";
+import { ClientsContainer } from "../../../utils/container/clients";
 
-// function newCustomer(nome, cpf, email, tel, token) {
-//     addCustomer({ nome, cpf, email, tel }, token);
-// }
+export function EditCustomerBody() {
+    const { register, handleSubmit, errors, trigger } = useForm({
+        mode: "all",
+	});
+	const { editCustomer } = ClientsContainer.useContainer();
+	const { token } = AuthenticationContainer.useContainer();
 
-export function AddCustomer() {
-    // const { register, handleSubmit, errors, trigger, watch } = useForm({
-    //     mode: "all",
-    // });
-
-    // const { token } = AuthenticationContainer.useContainer();
-
-    // const history = useHistory();
-
-    // React.useEffect(() => trigger(), [trigger]);
-
-    // const qtdErros = Object.keys(errors).length;
-
-    // const emailInputRef = React.useRef();
+    const history = useHistory();
+    React.useEffect(() => trigger(), [trigger]);
+    const qtdErros = Object.keys(errors).length;
+    const emailInputRef = React.useRef();
 
     return (
-        <div className="addCostumer">
-            <Sidebar />
-            <section>
-                <div className="addCustomerHeader">
-                    <h1>// ADICIONAR CLIENTE</h1>
-                    <UserBox />
-                </div>
-                <>
-					<AddCustomerBody />
-                    {/* <div className="customerAndChargeScreenBox">
+        <div className="addCostumerBody">
+                <div className="customerAndChargeScreen">
+                    <div className="customerAndChargeScreenBox">
                         <form
                             onSubmit={handleSubmit(async (data) => {
-                                await newCustomer(
-                                    data.nome,
+                                await editCustomer(
+									data.id,
+									data.nome,
                                     data.cpf,
                                     data.email,
-                                    data.tel,
                                     token
                                 );
                                 history.push("/customers");
@@ -54,7 +37,7 @@ export function AddCustomer() {
                         >
                             <CustomerAndChargeInputs
                                 label="Nome"
-                                name="nome"
+                                name="id"
                                 type="text"
                                 placeholder="Nome da cliente"
                                 inputRef={register({ required: true })}
@@ -100,19 +83,20 @@ export function AddCustomer() {
                             <div className="buttons">
                                 <Button
                                     label="Cancelar"
-                                    class="buttonWithoutBackground"
+									class="buttonWithoutBackground addButtonsForm"
+									type="button"
+									onClick={() => history.push("/customers")}
                                 />
 
                                 <Button
                                     disabled={qtdErros > 0}
-                                    label="Adicionar Cliente"
-                                    class="validAcess"
+                                    label="Salvar Alterações"
+                                    class="validAcess addButtonsForm"
                                 />
                             </div>
                         </form>
-                    </div> */}
-                </>
-            </section>
+                    </div>
+                </div>
         </div>
     );
 }

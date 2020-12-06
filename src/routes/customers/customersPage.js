@@ -1,7 +1,7 @@
 import React from "react";
-import { Sidebar } from "../components/sidebar";
-import { Header } from "../components/header";
-import { CustomerBody } from "../components/customers/customerBody";
+import { Sidebar } from "../../components/sidebar";
+import { Header } from "../../components/header";
+import { CustomerBody } from "../../components/customers/customerBody";
 
 
 export function Customers() {

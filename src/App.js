@@ -8,15 +8,16 @@ import { Home } from "./routes/homePage";
 import { Login } from "./routes/login";
 import { Register } from "./routes/registerPage";
 import { PrivateRoute } from "./utils/privateRoute/privateRoute";
-import { AddCustomer } from "./routes/addCustomerPage.js";
-import { CreateCharge } from "./routes/createChargePage";
-import { Customers } from "./routes/customersPage";
-import { Charges } from "./routes/chargesPage";
+import { AddCustomer } from "./routes/customers/addCustomerPage.js";
+import { CreateCharge } from "./routes/charges/createChargePage";
+import { Customers } from "./routes/customers/customersPage";
+import { Charges } from "./routes/charges/chargesPage";
 
 import { AuthenticationContainer } from "./utils/container/authentication";
 import { ClientsContainer } from "./utils/container/clients";
 import { ReportContainer } from "./utils/container/report";
 import { ChargesContainer } from "./utils/container/charges";
+import { CustomerEdit } from "./routes/customers/customerEdit";
 
 function App() {
     return (
@@ -53,6 +54,10 @@ function App() {
                                     <PrivateRoute exact path="/addcustomer">
                                         {" "}
                                         <AddCustomer />{" "}
+                                    </PrivateRoute>
+									<PrivateRoute exact path="/customeredit">
+                                        {" "}
+                                        <CustomerEdit />{" "}
                                     </PrivateRoute>
                                     <PrivateRoute exact path="/customers">
                                         {" "}
