@@ -8,16 +8,21 @@ import phoneImg from "../../../images/phone.png";
 import emailImg from "../../../images/email.png";
 import editImg from "../../../images/edit.png";
 import searchImg from "../../../images/search.png";
+import { Pages } from "../../pages";
 
 export function CustomerBody() {
     const history = useHistory();
     const { token } = AuthenticationContainer.useContainer();
-    const { clients, getClients } = ClientsContainer.useContainer();
-    const [page, setPage] = React.useState(0);
+    const {
+        clients,
+        getClients,
+        customersPages,
+    } = ClientsContainer.useContainer();
+    const [page, setPage] = React.useState(1);
 
     React.useEffect(() => {
         getClients(token, page);
-    }, []);
+    }, [page]);
 
     function ClientList(props) {
         return (
@@ -117,6 +122,30 @@ export function CustomerBody() {
                         })}
                     </tbody>
                 </table>
+            </section>
+
+            <section>
+                <Pages
+                    onClickBack={() => (page > 0 ? setPage(page - 1) : "")}
+                    namePages={customersPages}
+                    onClickNext={() =>
+                        page <= customersPages.length - 1
+                            ? setPage(page + 1)
+                            : ""
+                    }
+                >
+                    {customersPages.map((r, i) => {
+                        return (
+                            <button
+                                key={i}
+                                className="pagesButtons"
+                                onClick={() => setPage(r)}
+                            >
+                                {r}
+                            </button>
+                        );
+                    })}
+                </Pages>
             </section>
         </div>
     );

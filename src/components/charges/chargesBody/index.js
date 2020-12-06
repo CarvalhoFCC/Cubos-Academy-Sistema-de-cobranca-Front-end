@@ -6,11 +6,16 @@ import searchImg from "../../../images/search.png";
 import printerImg from "../../../images/printer.png";
 import pagoImg from "../../../images/toggle-on.png";
 import pendenteImg from "../../../images/pendente.png";
+import { Pages } from "../../pages";
 
 export function ChargesBody() {
     const { token } = AuthenticationContainer.useContainer();
-    const { charges, getCharges } = ChargesContainer.useContainer();
-    const [page, setPage] = React.useState(0);
+    const {
+        charges,
+        getCharges,
+        chargesPages,
+    } = ChargesContainer.useContainer();
+    const [page, setPage] = React.useState(1);
 
     React.useEffect(() => {
         getCharges(token, page);
@@ -91,6 +96,28 @@ export function ChargesBody() {
                         })}
                     </tbody>
                 </table>
+            </section>
+
+            <section>
+                <Pages
+                    onClickBack={() => (page > 0 ? setPage(page - 1) : "")}
+                    namePages={chargesPages}
+                    onClickNext={() =>
+                        page <= chargesPages.length - 1 ? setPage(page + 1) : ""
+                    }
+                >
+                    {chargesPages.map((r, i) => {
+                        return (
+                            <button
+                                key={i}
+                                className="pagesButtons"
+                                onClick={() => setPage(r)}
+                            >
+                                {r}
+                            </button>
+                        );
+                    })}
+                </Pages>
             </section>
         </div>
     );
