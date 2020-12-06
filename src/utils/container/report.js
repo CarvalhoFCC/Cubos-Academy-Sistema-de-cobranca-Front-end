@@ -1,11 +1,8 @@
 import React from "react";
 import { createContainer } from "unstated-next";
-import { AuthenticationContainer } from "./authentication";
 import { report } from "../api/roport";
 
 function useReport() {
-	const { token } = AuthenticationContainer.useContainer();
-
 	const [reports, setReports] = React.useState([]);
 
 	async function getReport(token) {

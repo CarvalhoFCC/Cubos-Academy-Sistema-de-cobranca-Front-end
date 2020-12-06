@@ -1,10 +1,10 @@
 import React from "react";
-import { CustomerAndChargeInputs } from "../../components/customerAndChargeInputs";
+import { CustomerAndChargeInputs } from "../../customerAndChargeInputs";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Button } from "../../components/buttons";
-import { ChargesContainer } from "../../utils/container/charges";
-import { AuthenticationContainer } from "../../utils/container/authentication";
+import { Button } from "../../buttons";
+import { ChargesContainer } from "../../../utils/container/charges";
+import { AuthenticationContainer } from "../../../utils/container/authentication";
 
 export function CreateChargeBody() {
     const { register, handleSubmit, errors, trigger } = useForm({

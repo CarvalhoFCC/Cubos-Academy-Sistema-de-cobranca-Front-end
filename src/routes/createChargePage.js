@@ -2,10 +2,10 @@ import React from "react";
 // import { CustomerAndChargeInputs } from "../../components/customerAndChargeInputs";
 // import { Link, useHistory } from "react-router-dom";
 // import { useForm } from "react-hook-form";
-import { Sidebar } from "../../components/sidebar";
+import { Sidebar } from "../components/sidebar";
 // import { Button } from "../../components/buttons";
-import { UserBox } from "../../components/userBox";
-import { CreateChargeBody } from "../../components/createChargeBody";
+import { UserBox } from "../components/userBox";
+import { CreateChargeBody } from "../components/charges/createChargeBody";
 
 export function CreateCharge() {
     // const { register, handleSubmit, errors, trigger, watch } = useForm({

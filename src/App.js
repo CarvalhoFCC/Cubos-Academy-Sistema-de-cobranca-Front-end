@@ -4,14 +4,14 @@ import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { ForgotPassword } from "./routes/forgotPassword";
-import { Home } from "./routes/home";
+import { Home } from "./routes/homePage";
 import { Login } from "./routes/login";
-import { Register } from "./routes/register";
+import { Register } from "./routes/registerPage";
 import { PrivateRoute } from "./utils/privateRoute/privateRoute";
-import { AddCustomer } from "./routes/addCustomer";
-import { CreateCharge } from "./routes/createCharge";
-import { Customers } from "./routes/customers";
-import { Charges } from "./routes/charges";
+import { AddCustomer } from "./routes/addCustomerPage.js";
+import { CreateCharge } from "./routes/createChargePage";
+import { Customers } from "./routes/customersPage";
+import { Charges } from "./routes/chargesPage";
 
 import { AuthenticationContainer } from "./utils/container/authentication";
 import { ClientsContainer } from "./utils/container/clients";

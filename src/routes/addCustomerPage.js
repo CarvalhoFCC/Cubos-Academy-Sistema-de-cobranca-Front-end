@@ -1,35 +1,45 @@
 import React from "react";
-import "./styles.css";
-import { CustomerAndChargeInputs } from "../customerAndChargeInputs";
-import { useHistory } from "react-router-dom";
-import { useForm } from "react-hook-form";
-// import { Sidebar } from "../sidebar";
-import { Button } from "../buttons";
-// import { UserBox } from "../userBox";
+// import "./styles.css";
+// import { CustomerAndChargeInputs } from "../../components/customerAndChargeInputs";
+// import { Link, useHistory } from "react-router-dom";
+// import { useForm } from "react-hook-form";
+import { Sidebar } from "../components/sidebar";
+// import { Button } from "../../components/buttons";
+import { UserBox } from "../components/userBox";
 // import { addCustomer } from "../../utils/api/addCustomer";
-import { AuthenticationContainer } from "../../utils/container/authentication";
-import { ClientsContainer } from "../../utils/container/clients";
+// import { AuthenticationContainer } from "../../utils/container/authentication";
+import { AddCustomerBody } from "../components/customers/addCustomerBody";
 
 // function newCustomer(nome, cpf, email, tel, token) {
 //     addCustomer({ nome, cpf, email, tel }, token);
 // }
 
-export function AddCustomerBody() {
-    const { register, handleSubmit, errors, trigger } = useForm({
-        mode: "all",
-	});
-	const { newCustomer } = ClientsContainer.useContainer();
-	const { token } = AuthenticationContainer.useContainer();
+export function AddCustomer() {
+    // const { register, handleSubmit, errors, trigger, watch } = useForm({
+    //     mode: "all",
+    // });
 
-    const history = useHistory();
-    React.useEffect(() => trigger(), [trigger]);
-    const qtdErros = Object.keys(errors).length;
-    const emailInputRef = React.useRef();
+    // const { token } = AuthenticationContainer.useContainer();
+
+    // const history = useHistory();
+
+    // React.useEffect(() => trigger(), [trigger]);
+
+    // const qtdErros = Object.keys(errors).length;
+
+    // const emailInputRef = React.useRef();
 
     return (
-        <div className="addCostumerBody">
-                <div className="customerAndChargeScreen">
-                    <div className="customerAndChargeScreenBox">
+        <div className="addCostumer">
+            <Sidebar />
+            <section>
+                <div className="addCustomerHeader">
+                    <h1>// ADICIONAR CLIENTE</h1>
+                    <UserBox />
+                </div>
+                <>
+					<AddCustomerBody />
+                    {/* <div className="customerAndChargeScreenBox">
                         <form
                             onSubmit={handleSubmit(async (data) => {
                                 await newCustomer(
@@ -90,20 +100,19 @@ export function AddCustomerBody() {
                             <div className="buttons">
                                 <Button
                                     label="Cancelar"
-									class="buttonWithoutBackground addButtonsForm"
-									type="button"
-									onClick={() => history.push("/customers")}
+                                    class="buttonWithoutBackground"
                                 />
 
                                 <Button
                                     disabled={qtdErros > 0}
                                     label="Adicionar Cliente"
-                                    class="validAcess addButtonsForm"
+                                    class="validAcess"
                                 />
                             </div>
                         </form>
-                    </div>
-                </div>
+                    </div> */}
+                </>
+            </section>
         </div>
     );
 }

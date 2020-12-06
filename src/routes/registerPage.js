@@ -1,11 +1,11 @@
 import React from "react";
-import { AcessScreen } from "../../components/acessScreen";
+import { AcessScreen } from "../components/acessScreen";
 import { Link, useHistory } from "react-router-dom";
-import { Button } from "../../components/buttons";
-import { AcessScreenInput } from "../../components/acessScreenInput";
-import logoCubosBlack from "../../images/logoCubos.png";
+import { Button } from "../components/buttons";
+import { AcessScreenInput } from "../components/acessScreenInput";
+import logoCubosBlack from "../images/logoCubos.png";
 import { useForm } from "react-hook-form";
-import { registration } from "../../utils/api/register";
+import { registration } from "../utils/api/register";
 
 export function Register(props, ref) {
     const { register, handleSubmit, errors, trigger } = useForm({

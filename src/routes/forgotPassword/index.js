@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { Button } from "../../components/buttons";
 import { AcessScreenInput } from "../../components/acessScreenInput";
 import logoCubosBlack from "../../images/logoCubos.png";

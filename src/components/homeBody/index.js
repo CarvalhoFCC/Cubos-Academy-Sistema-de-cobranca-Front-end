@@ -4,7 +4,6 @@ import chargeImg from "../../images/charge.png";
 import clientImg from "../../images/users2.png";
 import "./styles.css";
 import { AuthenticationContainer } from "../../utils/container/authentication";
-import { report } from "../../utils/api/roport";
 import { ReportContainer } from "../../utils/container/report";
 
 function CardResult(props) {

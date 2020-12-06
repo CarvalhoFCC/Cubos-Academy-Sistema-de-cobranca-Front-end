@@ -5,8 +5,6 @@ import { addCharge } from "../api/createCharge";
 
 function useCharges() {
     const [charges, setCharges] = React.useState([]);
-
-	const teste = 96;
 	
 	async function getCharges(token, page) {
 		const responseJson = await chargesList(token, page);
@@ -21,7 +19,7 @@ function useCharges() {
         await addCharge({ idDoCliente, descricao, valor, vencimento }, token);
     }
 
-    return { charges, getCharges, newCharge, teste };
+    return { charges, getCharges, newCharge };
 }
 
 export const ChargesContainer = createContainer(useCharges);

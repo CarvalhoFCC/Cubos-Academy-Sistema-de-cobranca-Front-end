@@ -18,7 +18,6 @@ export const AuthenticationContainer = createContainer(() => {
 		        if (responseJson) {
                 const newToken = responseJson.dados.token;
                 setToken(newToken);
-                console.log(newToken);
             }
     }
 

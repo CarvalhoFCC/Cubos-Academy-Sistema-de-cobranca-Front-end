@@ -1,13 +1,13 @@
 import React from "react";
 import "./styles.css";
 import { useHistory } from "react-router-dom";
-import { AuthenticationContainer } from "../../utils/container/authentication";
-import { ClientsContainer } from "../../utils/container/clients";
-import { Button } from "../buttons";
-import phoneImg from "../../images/phone.png";
-import emailImg from "../../images/email.png";
-import editImg from "../../images/edit.png";
-import searchImg from "../../images/search.png";
+import { AuthenticationContainer } from "../../../utils/container/authentication";
+import { ClientsContainer } from "../../../utils/container/clients";
+import { Button } from "../../buttons";
+import phoneImg from "../../../images/phone.png";
+import emailImg from "../../../images/email.png";
+import editImg from "../../../images/edit.png";
+import searchImg from "../../../images/search.png";
 
 export function CustomerBody() {
     const history = useHistory();
