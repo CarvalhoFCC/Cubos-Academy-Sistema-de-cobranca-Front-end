@@ -1,21 +1,22 @@
 import React from "react";
-import { CustomerAndChargeInputs } from "../../components/customerAndChargeInputs";
-import { Link, useHistory } from "react-router-dom";
-import { useForm } from "react-hook-form";
+// import { CustomerAndChargeInputs } from "../../components/customerAndChargeInputs";
+// import { Link, useHistory } from "react-router-dom";
+// import { useForm } from "react-hook-form";
 import { Sidebar } from "../../components/sidebar";
-import { Button } from "../../components/buttons";
+// import { Button } from "../../components/buttons";
 import { UserBox } from "../../components/userBox";
+import { CreateChargeBody } from "../../components/createChargeBody";
 
 export function CreateCharge() {
-    const { register, handleSubmit, errors, trigger, watch } = useForm({
-        mode: "all",
-    });
+    // const { register, handleSubmit, errors, trigger, watch } = useForm({
+    //     mode: "all",
+    // });
 
-    const history = useHistory();
+    // const history = useHistory();
 
-    React.useEffect(() => trigger(), [trigger]);
+    // React.useEffect(() => trigger(), [trigger]);
 
-    const qtdErros = Object.keys(errors).length;
+    // const qtdErros = Object.keys(errors).length;
 
     return (
         <div className="addCostumer">
@@ -25,7 +26,8 @@ export function CreateCharge() {
                     <h1>// CRIAR COBRANÇA</h1>
                     <UserBox />
                 </div>
-                <div className="customerAndChargeScreen">
+				<CreateChargeBody />
+                {/* <div className="customerAndChargeScreen">
                     <div className="customerAndChargeScreenBox">
                         <form
                             onSubmit={handleSubmit((data) => {
@@ -84,7 +86,7 @@ export function CreateCharge() {
 							</div>
                         </form>
                     </div>
-                </div>
+                </div> */}
             </section>
         </div>
     );

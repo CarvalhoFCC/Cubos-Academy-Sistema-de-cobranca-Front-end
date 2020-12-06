@@ -3,6 +3,7 @@ import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { chargesList } from "../../utils/api/chargesList";
 import { AuthenticationContainer } from "../../utils/container/authentication";
+import { ChargesContainer } from "../../utils/container/charges";
 import searchImg from "../../images/search.png";
 import printerImg from "../../images/printer.png";
 import pagoImg from "../../images/toggle-on.png";
@@ -11,18 +12,23 @@ import pendenteImg from "../../images/pendente.png";
 export function ChargesBody() {
     // const history = useHistory();
     const { token } = AuthenticationContainer.useContainer();
-    const [charges, setCharges] = React.useState([]);
+    const { charges, getCharges, teste } = ChargesContainer.useContainer();
+    // const [charges, setCharges] = React.useState([]);
     const [page, setPage] = React.useState(0);
 
-    async function getCharges(token, page) {
-        const responseJson = await chargesList(token, page);
+    // async function getCharges(token, page) {
+    //     const responseJson = await chargesList(token, page);
 
-        if (responseJson) {
-            const newList = responseJson.dados.cobrancas;
-            setCharges(newList);
-            console.log("asd", newList);
-        }
-    }
+    //     if (responseJson) {
+    //         const newList = responseJson.dados.cobrancas;
+    //         setCharges(newList);
+    //         console.log("asd", newList);
+    //     }
+    // }
+
+    // React.useEffect(() => {
+    //     getCharges(token, page);
+    // }, [page]);
 
     React.useEffect(() => {
         getCharges(token, page);

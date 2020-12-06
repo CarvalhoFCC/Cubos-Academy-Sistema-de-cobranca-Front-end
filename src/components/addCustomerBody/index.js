@@ -18,9 +18,8 @@ export function AddCustomerBody() {
     const { register, handleSubmit, errors, trigger } = useForm({
         mode: "all",
 	});
-	const { newCustomer, teste } = ClientsContainer.useContainer();
+	const { newCustomer } = ClientsContainer.useContainer();
 	const { token } = AuthenticationContainer.useContainer();
-	console.log("aqqqquiiii", teste)
 
     const history = useHistory();
     React.useEffect(() => trigger(), [trigger]);
@@ -92,6 +91,7 @@ export function AddCustomerBody() {
                                 <Button
                                     label="Cancelar"
 									class="buttonWithoutBackground addButtonsForm"
+									type="button"
 									onClick={() => history.push("/customers")}
                                 />
 

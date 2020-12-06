@@ -1,32 +1,27 @@
-// import React from "react";
-// import { createContainer } from "unstated-next";
-// import { AuthenticationContainer } from "./authentication";
-// import { customerList } from "../api/customerList";
-// import { addCustomer } from "../api/addCustomer";
+import React from "react";
+import { createContainer } from "unstated-next";
+import { chargesList } from "../api/chargesList";
+import { addCharge } from "../api/createCharge";
 
-// function useCharges() {
-// 	const { token } = AuthenticationContainer.useContainer();
+function useCharges() {
+    const [charges, setCharges] = React.useState([]);
 
-// 	const [clients, setClients] = React.useState([]);
-
-// 	const teste = 96;
-
-// 	async function getClients(token, page) {
-//         const responseJson = await customerList(token, page);
-
-//         if (responseJson) {
-//             const newList = responseJson.dados.clientes;
-//             setClients(newList);
-//             console.log("asd", newList);
-//         }
-// 	}
-
-// 	async function newCustomer(nome, cpf, email, tel, token) {
-//         await addCustomer({ nome, cpf, email, tel }, token);
-// 	}
+	const teste = 96;
 	
-// 	return {clients, getClients, newCustomer, teste}
+	async function getCharges(token, page) {
+		const responseJson = await chargesList(token, page);
 
-// }
+		if(responseJson) {
+			const newList = responseJson.dados.cobrancas;
+			setCharges(newList);
+		}
+	}
 
-// export const ClientsContainer = createContainer(useCharges);
+    async function newCharge(idDoCliente, descricao, valor, vencimento, token) {
+        await addCharge({ idDoCliente, descricao, valor, vencimento }, token);
+    }
+
+    return { charges, getCharges, newCharge, teste };
+}
+
+export const ChargesContainer = createContainer(useCharges);
