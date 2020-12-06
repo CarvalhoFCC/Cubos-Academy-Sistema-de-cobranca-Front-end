@@ -31,3 +31,7 @@
 .customerAndChargeScreenBox .buttonsSpaceCreateCharges .buttons button {
 	margin-left: 16px;
 }
+
+.valueEndExpiresDate div input:focus {
+	outline: none;
+}
